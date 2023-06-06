@@ -13,7 +13,7 @@ const Navbar = () => {
 
 
         <>
-            <button className="btn btn-ghost">LogOut</button>
+            <li><button>LogOut</button></li>
         </>  <>
             <li><Link to="/login">Login</Link></li>
         </>
@@ -22,7 +22,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar fixed z-10 bg-opacity-10 max-w-screen-xl bg-black text-black px-10">
+            <div className="navbar fixed z-10 bg-opacity-10 max-w-screen-xl bg-black text-black px-10 top-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

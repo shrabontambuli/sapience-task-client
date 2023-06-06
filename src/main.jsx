@@ -7,6 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from './Pages/Shared/ErrorPage/ErrorPage.jsx';
+import Login from './Pages/LogIn/Login.jsx';
+import SignUp from './Pages/SignUp/SignUp.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,11 +16,16 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <ErrorPage/>, 
     children: [
-      {
-        path: "contacts/:contactId",
-        // element: <Contact />,
-      },
+      
     ],
+  },
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+  {
+    path: "/signUp",
+    element: <SignUp/>,
   },
 ]);
 
