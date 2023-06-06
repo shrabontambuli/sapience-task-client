@@ -6,12 +6,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ErrorPage from './Pages/Shared/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    // errorElement: <ErrorPage />, 
+    errorElement: <ErrorPage/>, 
     children: [
       {
         path: "contacts/:contactId",
