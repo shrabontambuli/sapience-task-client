@@ -34,7 +34,7 @@ const Login = () => {
                             </div>
                             <p className="mt-4"><Link className="underline" to='/signUp'>SignUp</Link> ! for new account</p>
                             <hr />
-                            <button className=" mt-2 btn btn-outline btn-warning mx-auto"><img className="w-8 rounded-full" src="/images/google.png" alt="" /> Continue with Google</button>
+                            <button className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
                         </Form>
                     </div>
                 </div>

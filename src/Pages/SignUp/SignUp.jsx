@@ -51,7 +51,7 @@ const SignUp = () => {
                                 <button className="btn btn-warning">Register</button>
                             </div>
                             <p className="mt-4">Already have an account! <Link className="underline" to='/login'>Please Login</Link></p>
-                            <button className=" mt-2 btn btn-outline btn-warning mx-auto"><img className="w-8 rounded-full" src="/images/google.png" alt="" /> Continue with Google</button>
+                            <button className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
                         </Form>
                     </div>
                 </div>
