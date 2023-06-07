@@ -10,6 +10,7 @@ import ErrorPage from './Pages/Shared/ErrorPage/ErrorPage.jsx';
 import Login from './Pages/LogIn/Login.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
+import Home from './Pages/Home/Home/Home.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-
+      {
+        path: "/",
+        element: <Home/>
+      },
     ],
   },
   {
