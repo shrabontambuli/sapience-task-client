@@ -3,6 +3,7 @@ import Slider2 from "../../../../public/image/slider-2.png"
 import Slider3 from "../../../../public/image/slider-3.jpg"
 import Slider4 from "../../../../public/image/slider-4.webp"
 const Slider = () => {
+
     return (
         <div>
             <div className="carousel w-full">
