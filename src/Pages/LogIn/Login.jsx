@@ -1,7 +1,12 @@
+import { useForm } from "react-hook-form";
 import { Form, Link } from "react-router-dom";
 
 
 const Login = () => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data =>{
+        console.log(data);
+    }
     return (
         <div className="mt-10">
             <div className="hero min-h-screen bg-base-200">
@@ -11,19 +16,19 @@ const Login = () => {
                         <img className="h-96 w-full rounded-3xl mt-3" src="/image/login.jpg" alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <Form className="card-body">
+                        <Form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email"
+                                <input type="text" {...register("email", { required: true })} placeholder="email"
                                     name="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password"
+                                <input type="password" {...register("password", { required: true })} placeholder="password"
                                     name="password" className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
