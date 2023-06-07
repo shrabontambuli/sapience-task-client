@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {signIn} = useContext(AuthContext);
+    const {signIn, googleSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -20,6 +20,11 @@ const Login = () => {
         .catch(err => console.log(err))
         console.log(data);
     }
+    const handleGoogle = () => {
+        googleSignIn();
+        navigate(from);
+    }
+
     return (
         <div className="mt-10">
             <div className="hero min-h-screen bg-base-200">
@@ -59,7 +64,7 @@ const Login = () => {
                             </div>
                             <p className="mt-4"><Link className="underline" to='/signUp'>SignUp</Link> ! for new account</p>
                             <hr />
-                            <button className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
+                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
                         </Form>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext);
+    const { createUser, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -20,12 +20,16 @@ const SignUp = () => {
                 updateProfile(result.user, {
                     displayName: data.name, photoURL: data.photo
                 })
-                
+
             })
             .catch((error) => {
                 return (error);
-                
+
             })
+    }
+    const handleGoogle = () => {
+        googleSignIn();
+        navigate(from);
     }
     return (
         <div className="mt-10">
@@ -76,9 +80,9 @@ const SignUp = () => {
                                     maxLength: 20,
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/
                                 })}
-                                 placeholder="confirm password"
+                                    placeholder="confirm password"
                                     name="confirmPassword" className="input input-bordered" />
-                                
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -91,7 +95,7 @@ const SignUp = () => {
                                 <button className="btn btn-warning">Register</button>
                             </div>
                             <p className="mt-4">Already have an account! <Link className="underline" to='/login'>Please Login</Link></p>
-                            <button className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
+                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
                         </Form>
                     </div>
                 </div>

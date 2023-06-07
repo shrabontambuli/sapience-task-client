@@ -11,20 +11,22 @@ const Navbar = () => {
             .then()
             .catch(error => (error))
     }
-    const navOptions = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/instructors">Instructors</Link></li>
-        <li><Link to="/classes">Classes</Link></li>
+    const navOptions =
+        <>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/instructors">Instructors</Link></li>
+            <li><Link to="/classes">Classes</Link></li>
 
-        <li><Link to="/dashboard">Dashboard</Link></li>
+            {user &&
+                <li><Link to="/dashboard">Dashboard</Link></li>
+            }
+            
+            {
+                user ? <Link to='/'><li><button onClick={handleLogOut}>LogOut</button></li></Link> :
+                    <li><Link to="/login">Login</Link></li>
+            }
 
-
-
-
-        {user ? <Link to='/'><li><button onClick={handleLogOut}>LogOut</button></li></Link> :
-            <li><Link to="/login">Login</Link></li>}
-
-    </>
+        </>
 
 
     return (
