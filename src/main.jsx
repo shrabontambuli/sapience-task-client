@@ -9,30 +9,33 @@ import {
 import ErrorPage from './Pages/Shared/ErrorPage/ErrorPage.jsx';
 import Login from './Pages/LogIn/Login.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
+import AuthProvider from './providers/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    errorElement: <ErrorPage/>, 
+    element: <App />,
+    errorElement: <ErrorPage />,
     children: [
-      
+
     ],
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/signUp",
-    element: <SignUp/>,
+    element: <SignUp />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
