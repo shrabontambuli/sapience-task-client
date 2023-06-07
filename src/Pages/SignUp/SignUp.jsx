@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
@@ -8,10 +8,14 @@ import { updateProfile } from "firebase/auth";
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const onSubmit = data => {
         createUser(data.email, data.password)
             .then((result) => {
                 const loggedUser = result.user;
+                navigate(from, { replace: true })
                 console.log(loggedUser);
                 updateProfile(result.user, {
                     displayName: data.name, photoURL: data.photo
