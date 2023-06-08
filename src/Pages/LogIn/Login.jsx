@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -6,18 +6,20 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {signIn, googleSignIn} = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const [showPassword, setShowPassword] = useState(false);
+
     const from = location.state?.from?.pathname || '/';
-    const onSubmit = data =>{
+    const onSubmit = data => {
         signIn(data.email, data.password)
-        .then(result =>{
-            const user = result.user;
-            navigate(from, { replace: true })
-            console.log(user);
-        })
-        .catch(err => console.log(err))
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true })
+                console.log(user);
+            })
+            .catch(err => console.log(err))
         console.log(data);
     }
     const handleGoogle = () => {
@@ -42,18 +44,24 @@ const Login = () => {
                                 <input type="text" {...register("email", { required: true })} placeholder="email"
                                     name="email" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", {
+                                <input type={showPassword ? 'text' : 'password'} {...register("password", {
                                     required: true,
                                     minLength: 6,
                                     maxLength: 20,
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/
                                 })} placeholder="password"
                                     name="password" className="input input-bordered" />
-                                    {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                <span
+                                    className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? '🙈' : '👁️'}
+                                </span>
+                                {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                 {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase and one special character </p>}
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>

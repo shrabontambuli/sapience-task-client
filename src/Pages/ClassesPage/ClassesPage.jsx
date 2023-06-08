@@ -1,13 +1,49 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const ClassesPage = () => {
     const classes = useLoaderData();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/login';
+
+    const handleSelect = p => {
+        const { _id, picture, name, price, available_seats } = p;
+        if (user && user.email) {
+            const selectedClass = { classesId: _id, name, picture, price, available_seats, email: user.email }
+            fetch('http://localhost:5000/selected', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedClass)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Class added on the Selected Class.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+        else{
+            navigate(from, { replace: true })
+        }
+    }
     return (
-        <div className="mt-20 bg-[#7f8a8ffa] py-10">
+        <div className="mt-20 bg-[#7f8a8ffa] py-16">
             <div className="container mx-auto">
                 <h1 className="text-center text-3xl font-serif font-semibold">Our All Class</h1>
-                <div className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-y-5">
+                <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-y-5">
                     {
                         classes.map(p => <div key={p._id} className="card w-80 bg-base-100 shadow-xl image-full">
                             <figure><img src={p.picture} alt="Shoes" /></figure>
@@ -19,7 +55,7 @@ const ClassesPage = () => {
                                     <p className="">Price: $ {p.price}</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-outline btn-warning">Selecting</button>
+                                    <button onClick={() => (handleSelect(p))} className="btn btn-outline btn-warning">Selecting</button>
                                 </div>
                             </div>
                         </div>
