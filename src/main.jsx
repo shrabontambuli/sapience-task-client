@@ -12,6 +12,7 @@ import SignUp from './Pages/SignUp/SignUp.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Home from './Pages/Home/Home/Home.jsx';
 import InstructorPage from './Pages/InstructorPage/InstructorPage.jsx';
+import ClassesPage from './Pages/ClassesPage/ClassesPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
       {
         path: "/instructors",
         element: <InstructorPage/>
+      },
+      {
+        path: "/classes",
+        element: <ClassesPage/>,
+        loader: () => fetch('http://localhost:5000/classes')
       },
     ],
   },
