@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 const Classes = () => {
     const [data, setData] = useState([]);
-    console.log(data);
     const url = ('http://localhost:5000/class')
     useEffect(() => {
         fetch(url)
@@ -12,11 +11,12 @@ const Classes = () => {
             .then(data => setData(data))
     }, [])
     return (
-        <div className="mt-20 container mx-auto">
+        <div className="bg-[rgba(208,214,214,0.8)] pt-5 pb-14">
+            <div className="mt-5 container mx-auto">
             <div>
                 <h1 className="text-3xl font-serif font-semibold text-center">Our Popular Musical Instruments <br /> Class</h1>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-14">
+            <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-4 mt-14">
                 {
                     data.map(d =>
                         <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} key={d._id}>
@@ -36,6 +36,7 @@ const Classes = () => {
                     )
                 }
             </div>
+        </div>
         </div>
     );
 };
