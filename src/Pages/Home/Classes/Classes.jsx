@@ -8,7 +8,7 @@ const Classes = () => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => setData(data.slice(0,6)))
     }, [])
     return (
         <div className="bg-[rgba(208,214,214,0.8)] pt-8 pb-24">
