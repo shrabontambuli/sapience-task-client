@@ -22,6 +22,7 @@ import ClassesPage from './Pages/ClassesPage/ClassesPage.jsx';
 import DashBoard from './Pages/DashBoard/DashBoard.jsx';
 import MySelectedClass from './Pages/DashBoard/MySelectedClass/MySelectedClass.jsx';
 import DashBoardHome from './Pages/DashBoard/DashBoardHome.jsx';
+import ManageUsers from './Pages/DashBoard/AdminDashBoard/ManageUsers/ManageUsers.jsx';
 
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "mySelected",
         element: <MySelectedClass />
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUsers/>
       }
     ]
   }

@@ -6,6 +6,7 @@ import { FaHome } from 'react-icons/fa';
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext);
+    const isAdmin = true;
     return (
         <div>
             <div className="text-center bg-[#556777bd] py-3">
@@ -25,9 +26,19 @@ const DashBoard = () => {
                                 <img src={user?.photoURL} />
                             </div>
                         </div>}
-                        <li><Link to="/"><FaHome/>Home</Link></li>
-                        <li><Link to="mySelected">My Selected Classes</Link></li>
-                        <li><Link to="/">My Enrolled Classes</Link></li>
+                        {
+                            isAdmin ?
+                                <>
+                                    <li><Link to="/"><FaHome /> Admin Home</Link></li>
+                                    <li><Link to="mySelected">Manage Classes</Link></li>
+                                    <li><Link to="manageUsers">Manage Users</Link></li>
+                                </> :
+                                <>
+                                    <li><Link to="/"><FaHome /> User Home</Link></li>
+                                    <li><Link to="mySelected">My Selected Classes</Link></li>
+                                    <li><Link to="/">My Enrolled Classes</Link></li>
+                                </>
+                        }
 
                     </ul>
 

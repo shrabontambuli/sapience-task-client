@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,12 +15,35 @@ const SignUp = () => {
     const onSubmit = data => {
         createUser(data.email, data.password)
             .then((result) => {
+
+
                 const loggedUser = result.user;
                 navigate(from, { replace: true })
                 console.log(loggedUser);
                 updateProfile(result.user, {
                     displayName: data.name, photoURL: data.photo
                 })
+                const saveUser = { name: data.name, email: data.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            reset();
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Class added on the Selected Class.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
 
             })
             .catch((error) => {
@@ -28,8 +52,24 @@ const SignUp = () => {
             })
     }
     const handleGoogle = () => {
-        googleSignIn();
-        navigate(from);
+        googleSignIn()
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email}
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                           navigate(from);
+                    })
+            })
+
     }
     return (
         <div className="mt-10">
