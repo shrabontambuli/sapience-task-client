@@ -1,17 +1,47 @@
 import { FaWallet } from 'react-icons/fa';
 import useSelected from '../../../hooks/useSelected';
+import Swal from 'sweetalert2';
 
 const MySelectedClass = () => {
-    const [classes] = useSelected();
+    const [classes,  refetch] = useSelected();
+
+    const handleDelete = (item) =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/selected/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
     return (
-        <div>
+        <div className='w-2/3'>
             <div className='text-center pb-10'>
-                <h1 className='text-3xl font-serif text-[#92217afa]'>My Selected Classes</h1>
+                <h1 className='text-3xl font-serif font-bold text-[#92217afa]'>My Selected Classes</h1>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className='text-lg'>
                         <tr>
                             <th>
                                 #
@@ -24,9 +54,9 @@ const MySelectedClass = () => {
                     </thead>
                     <tbody>
                         {
-                            classes.map(d => <tr key={d._id}>
+                            classes.map((d, index) => <tr key={d._id}>
                                 <th>
-                                    1
+                                    {index + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -44,7 +74,7 @@ const MySelectedClass = () => {
                                     <button className='btn btn-outline rounded-full'><FaWallet /></button>
                                 </td>
                                 <th>
-                                    <button className="btn btn-circle btn-outline">
+                                    <button onClick={()=>handleDelete(d)} className="btn btn-circle btn-outline">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                     </button>
                                 </th>
