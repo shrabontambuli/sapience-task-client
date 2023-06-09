@@ -1,7 +1,18 @@
+import { useQuery } from '@tanstack/react-query'
+import { useContext } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
 
+const useSelected = () => {
+    const {user} = useContext(AuthContext);
 
-const useSelected = email => {
-    
+    const { refetch, data: select = []} = useQuery({
+        queryKey: ['classes', user?.email],
+        queryFn: async () =>{
+            const res = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
+            return res.json();
+        },
+      })
+      return [select , refetch];
 };
 
 export default useSelected;

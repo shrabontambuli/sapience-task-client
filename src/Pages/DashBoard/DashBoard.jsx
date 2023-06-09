@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import './DashBoard.css'
+import { FaHome } from 'react-icons/fa';
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext);
@@ -24,6 +25,7 @@ const DashBoard = () => {
                                 <img src={user?.photoURL} />
                             </div>
                         </div>}
+                        <li><Link to="/"><FaHome/>Home</Link></li>
                         <li><Link to="mySelected">My Selected Classes</Link></li>
                         <li><Link to="/">My Enrolled Classes</Link></li>
 

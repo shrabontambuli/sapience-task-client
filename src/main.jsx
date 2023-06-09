@@ -6,6 +6,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
+
 import ErrorPage from './Pages/Shared/ErrorPage/ErrorPage.jsx';
 import Login from './Pages/LogIn/Login.jsx';
 import SignUp from './Pages/SignUp/SignUp.jsx';
@@ -15,6 +21,8 @@ import InstructorPage from './Pages/InstructorPage/InstructorPage.jsx';
 import ClassesPage from './Pages/ClassesPage/ClassesPage.jsx';
 import DashBoard from './Pages/DashBoard/DashBoard.jsx';
 import MySelectedClass from './Pages/DashBoard/MySelectedClass/MySelectedClass.jsx';
+import DashBoardHome from './Pages/DashBoard/DashBoardHome.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -24,15 +32,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />
       },
       {
         path: "/instructors",
-        element: <InstructorPage/>
+        element: <InstructorPage />
       },
       {
         path: "/classes",
-        element: <ClassesPage/>,
+        element: <ClassesPage />,
         loader: () => fetch('http://localhost:5000/classes')
       },
     ],
@@ -47,23 +55,29 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoard/>,
-    children : [
+    element: <DashBoard />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashBoardHome/>
+      },
       {
         path: "mySelected",
-        element: <MySelectedClass/>
+        element: <MySelectedClass />
       }
     ]
   }
-  
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}>
+          <App />
+        </RouterProvider>
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>,
 )

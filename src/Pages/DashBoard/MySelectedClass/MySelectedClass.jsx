@@ -1,6 +1,8 @@
 import { FaWallet } from 'react-icons/fa';
+import useSelected from '../../../hooks/useSelected';
 
 const MySelectedClass = () => {
+    const [classes] = useSelected();
     return (
         <div>
             <div className='text-center pb-10'>
@@ -21,29 +23,33 @@ const MySelectedClass = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>
-                                1
-                            </th>
-                            <td>
-                                <div className="flex items-center space-x-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                        {
+                            classes.map(d => <tr key={d._id}>
+                                <th>
+                                    1
+                                </th>
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={d.picture} alt="Avatar Tailwind CSS Component" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                Shrabon
-                            </td>
-                            <td><FaWallet /></td>
-                            <th>
-                                <button className="btn btn-circle btn-outline">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
-                            </th>
-                        </tr>
+                                </td>
+                                <td>
+                                    <h1 className='text-xl font-serif'>{d.name}</h1>
+                                </td>
+                                <td>
+                                    <button className='btn btn-outline rounded-full'><FaWallet /></button>
+                                </td>
+                                <th>
+                                    <button className="btn btn-circle btn-outline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                    </button>
+                                </th>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
