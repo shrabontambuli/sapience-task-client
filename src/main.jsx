@@ -13,6 +13,8 @@ import AuthProvider from './providers/AuthProvider.jsx';
 import Home from './Pages/Home/Home/Home.jsx';
 import InstructorPage from './Pages/InstructorPage/InstructorPage.jsx';
 import ClassesPage from './Pages/ClassesPage/ClassesPage.jsx';
+import DashBoard from './Pages/DashBoard/DashBoard.jsx';
+import MySelectedClass from './Pages/DashBoard/MySelectedClass/MySelectedClass.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,17 @@ const router = createBrowserRouter([
     path: "/signUp",
     element: <SignUp />,
   },
+  {
+    path: "/dashboard",
+    element: <DashBoard/>,
+    children : [
+      {
+        path: "mySelected",
+        element: <MySelectedClass/>
+      }
+    ]
+  }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
