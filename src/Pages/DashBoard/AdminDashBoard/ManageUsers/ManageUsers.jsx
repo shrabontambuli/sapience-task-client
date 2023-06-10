@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt, FaUserFriends, FaUserGraduate } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const ManageUsers = () => {
+    const [axiosSecure] = useAxiosSecure();
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
-        return res.json();
+        const res = await axiosSecure.get('/users')
+        return res.data;
     })
 
     const handleMakeAdmin = user => {
@@ -22,6 +24,26 @@ const ManageUsers = () => {
                         position: 'center',
                         icon: 'success',
                         title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+    const handleMakeInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -51,7 +73,7 @@ const ManageUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'instructor' ? 'instructor' :
-                                    <button className="btn btn-warning rounded-full text-black"><FaUserFriends /></button>
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-warning rounded-full text-black"><FaUserFriends /></button>
                                 }</td>
                                 <td>{user.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleMakeAdmin(user)} className="btn btn-success rounded-full text-black"><FaUserGraduate /></button>

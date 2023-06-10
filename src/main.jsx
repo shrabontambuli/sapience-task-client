@@ -23,6 +23,10 @@ import DashBoard from './Pages/DashBoard/DashBoard.jsx';
 import MySelectedClass from './Pages/DashBoard/MySelectedClass/MySelectedClass.jsx';
 import DashBoardHome from './Pages/DashBoard/DashBoardHome.jsx';
 import ManageUsers from './Pages/DashBoard/AdminDashBoard/ManageUsers/ManageUsers.jsx';
+import AdminRoute from './Pages/DashBoard/AdminDashBoard/ManageUsers/AdminRoute.jsx';
+import AddClass from './Pages/DashBoard/InstructorDashboard/AddClass.jsx';
+import MyClasses from './Pages/DashBoard/InstructorDashboard/MyClasses.jsx';
+import InstructorRoute from './Pages/DashBoard/InstructorRoute/InstructorRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -56,7 +60,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoard />,
+    element:<AdminRoute><DashBoard /></AdminRoute>,
     children: [
       {
         path: "/dashboard",
@@ -68,7 +72,15 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUsers",
-        element: <ManageUsers/>
+        element: <ManageUsers/> 
+      },
+      {
+        path: "addClass",
+        element: <InstructorRoute><AddClass/></InstructorRoute> 
+      },
+      {
+        path: "myClasses",
+        element: <InstructorRoute><MyClasses/></InstructorRoute>
       }
     ]
   }

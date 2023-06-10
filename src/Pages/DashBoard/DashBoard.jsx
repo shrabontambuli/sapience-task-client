@@ -3,10 +3,16 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import './DashBoard.css'
 import { FaHome } from 'react-icons/fa';
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
+// import useInstructor from "../../hooks/useInstructor";
 
 const DashBoard = () => {
     const { user } = useContext(AuthContext);
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+    // const isInstructor = true;
     return (
         <div>
             <div className="text-center bg-[#556777bd] py-3">
@@ -33,12 +39,32 @@ const DashBoard = () => {
                                     <li><Link to="mySelected">Manage Classes</Link></li>
                                     <li><Link to="manageUsers">Manage Users</Link></li>
                                 </> :
+                                isInstructor ?
+                                <>
+                                    <li><Link to="/"><FaHome /> Instructor Home</Link></li>
+                                    <li><Link to="addClass">Add A Class</Link></li>
+                                    <li><Link to="myClasses">My Classes</Link></li>
+                                </> :
+
                                 <>
                                     <li><Link to="/"><FaHome /> User Home</Link></li>
                                     <li><Link to="mySelected">My Selected Classes</Link></li>
                                     <li><Link to="/">My Enrolled Classes</Link></li>
                                 </>
                         }
+                        {/* {
+                            isInstructor ?
+                                <>
+                                    <li><Link to="/"><FaHome /> Instructor Home</Link></li>
+                                    <li><Link to="mySelected">Manage Classes</Link></li>
+                                    <li><Link to="manageUsers">Manage Users</Link></li>
+                                </> :
+                                <>
+                                    <li><Link to="/"><FaHome /> User Home</Link></li>
+                                    <li><Link to="mySelected">My Selected Classes</Link></li>
+                                    <li><Link to="/">My Enrolled Classes</Link></li>
+                                </>
+                        } */}
 
                     </ul>
 
