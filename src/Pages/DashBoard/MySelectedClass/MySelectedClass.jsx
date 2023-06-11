@@ -37,7 +37,7 @@ const MySelectedClass = () => {
     return (
         <div className='w-2/3'>
             <div className='text-center pb-10'>
-                <h1 className='text-3xl font-serif font-bold text-[#92217afa]'>My Selected Classes</h1>
+                <h1 className='text-3xl font-serif font-bold text-[#b1ae23fa]'>My Selected Classes</h1>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">

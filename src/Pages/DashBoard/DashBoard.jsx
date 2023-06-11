@@ -50,6 +50,7 @@ const DashBoard = () => {
                                     <li><Link to="/"><FaHome /> User Home</Link></li>
                                     <li><Link to="mySelected">My Selected Classes</Link></li>
                                     <li><Link to="enrolledClasses">My Enrolled Classes</Link></li>
+                                    <li><Link to="paymentHistory">My Payment History</Link></li>
                                 </>
                         }
                         {/* {
