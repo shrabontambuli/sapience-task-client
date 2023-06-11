@@ -27,6 +27,7 @@ import AdminRoute from './Pages/DashBoard/AdminDashBoard/ManageUsers/AdminRoute.
 import AddClass from './Pages/DashBoard/InstructorDashboard/AddClass.jsx';
 import MyClasses from './Pages/DashBoard/InstructorDashboard/MyClasses.jsx';
 import InstructorRoute from './Pages/DashBoard/InstructorRoute/InstructorRoute.jsx';
+import Payment from './Pages/DashBoard/Payment/Payment.jsx';
 
 
 const router = createBrowserRouter([
@@ -69,6 +70,11 @@ const router = createBrowserRouter([
       {
         path: "mySelected",
         element: <MySelectedClass />
+      },
+      {
+        path: "payment/:_id",
+        element: <Payment/>,
+        loader: ({params}) => fetch(`http://localhost:5000/selected/${params._id}`)
       },
       {
         path: "manageUsers",
