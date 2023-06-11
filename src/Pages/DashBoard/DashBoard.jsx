@@ -20,13 +20,13 @@ const DashBoard = () => {
             </div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center pt-6 bg-[#3e404196]">
+                <div className="drawer-content flex flex-col items-center bg-[#3e404196]">
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet />
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-5 w-64 h-full bg-[#747c7a] text-base-content items-center">
+                    <ul className="menu pt-12 w-64 h-full bg-[#747c7a] text-base-content items-center">
                         {user && <div className="avatar">
                             <div className="w-16 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-4 mb-4">
                                 <img src={user?.photoURL} />
@@ -36,22 +36,22 @@ const DashBoard = () => {
                             isAdmin ?
                                 <>
                                     <li><Link to="/"><FaHome /> Admin Home</Link></li>
-                                    <li><Link to="mySelected">Manage Classes</Link></li>
+                                    <li><Link to="manageClasses">Manage Classes</Link></li>
                                     <li><Link to="manageUsers">Manage Users</Link></li>
                                 </> :
                                 isInstructor ?
-                                <>
-                                    <li><Link to="/"><FaHome /> Instructor Home</Link></li>
-                                    <li><Link to="addClass">Add A Class</Link></li>
-                                    <li><Link to="myClasses">My Classes</Link></li>
-                                </> :
+                                    <>
+                                        <li><Link to="/"><FaHome /> Instructor Home</Link></li>
+                                        <li><Link to="addClass">Add A Class</Link></li>
+                                        <li><Link to="myClasses">My Classes</Link></li>
+                                    </> :
 
-                                <>
-                                    <li><Link to="/"><FaHome /> User Home</Link></li>
-                                    <li><Link to="mySelected">My Selected Classes</Link></li>
-                                    <li><Link to="enrolledClasses">My Enrolled Classes</Link></li>
-                                    <li><Link to="paymentHistory">My Payment History</Link></li>
-                                </>
+                                    <>
+                                        <li><Link to="/"><FaHome /> User Home</Link></li>
+                                        <li><Link to="mySelected">My Selected Classes</Link></li>
+                                        <li><Link to="enrolledClasses">My Enrolled Classes</Link></li>
+                                        <li><Link to="paymentHistory">My Payment History</Link></li>
+                                    </>
                         }
                         {/* {
                             isInstructor ?

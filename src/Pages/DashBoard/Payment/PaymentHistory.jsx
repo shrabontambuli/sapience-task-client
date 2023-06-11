@@ -36,7 +36,7 @@ const PaymentHistory = () => {
                                     <h1>{d.email}</h1>
                                 </td>
                                 <td>
-                                    <h1>{d.price}</h1>
+                                    <h1>$ {d.price}</h1>
                                 </td>
                                 <td>
                                     <h1>{d.date}</h1>
