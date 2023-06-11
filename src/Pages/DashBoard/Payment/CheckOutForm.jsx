@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 const CheckOutForm = ({ data, price }) => {
@@ -77,6 +77,7 @@ const CheckOutForm = ({ data, price }) => {
                 price,
                 date: new Date(),
                 quantity: data.length,
+                picture: data.picture,
                 classItems: data.classesId,
                 status: 'service pending',
                 name: data.name
@@ -123,6 +124,11 @@ const CheckOutForm = ({ data, price }) => {
                     {transactionId && <p className="text-green-500 mt-5">Transaction complete with transactionId: {transactionId}</p>}
 
                 </form>
+                <div className="mt-8">
+                    <Link to='/dashboard/mySelected'>
+                        <button className="btn btn-ghost px-8">Go Back</button>
+                    </Link>
+                </div>
             </div>
         </>
     );

@@ -28,6 +28,7 @@ import AddClass from './Pages/DashBoard/InstructorDashboard/AddClass.jsx';
 import MyClasses from './Pages/DashBoard/InstructorDashboard/MyClasses.jsx';
 import InstructorRoute from './Pages/DashBoard/InstructorRoute/InstructorRoute.jsx';
 import Payment from './Pages/DashBoard/Payment/Payment.jsx';
+import EnrolledClasses from './Pages/DashBoard/EnrolledClasses.jsx';
 
 
 const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "mySelected",
         element: <MySelectedClass />
+      },
+      {
+        path: "enrolledClasses",
+        element: <EnrolledClasses/>
       },
       {
         path: "payment/:_id",
