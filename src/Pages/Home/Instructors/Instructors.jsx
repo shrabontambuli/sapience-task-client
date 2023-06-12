@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
-    const url = ('https://express-music-academy-server.vercel.app/instructors')
+    const url = ('https://music-academy-eta.vercel.app/instructors')
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

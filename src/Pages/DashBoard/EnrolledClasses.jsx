@@ -3,7 +3,6 @@ import useEnrolled from "../../hooks/useEnrolled";
 
 const EnrolledClasses = () => {
     const [enrolled] = useEnrolled();
-    console.log(enrolled);
     return (
         <div className='w-2/3'>
             <div className='text-center pb-10 mt-10'>

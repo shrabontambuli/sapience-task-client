@@ -3,7 +3,6 @@ import useAddClasses from "../../../hooks/useAddClasses";
 
 const MyClasses = () => {
     const [addClasses] = useAddClasses();
-    console.log(addClasses);
     return (
         <div className='w-2/3'>
             <div className='text-center pb-10'>

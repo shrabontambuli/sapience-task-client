@@ -10,7 +10,7 @@ const Feedback = () => {
 
     const onSubmit = data => {
         const feedbackUpdate = { feedback: data.feedback }
-        fetch(`https://express-music-academy-server.vercel.app/classesFeedback/${_id}`, {
+        fetch(`https://music-academy-eta.vercel.app/classesFeedback/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -19,7 +19,7 @@ const Feedback = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(feedbackUpdate);
+                // console.log(feedbackUpdate);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         position: 'top-center',

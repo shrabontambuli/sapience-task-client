@@ -12,12 +12,12 @@ const ManageUsers = () => {
     })
 
     const handleMakeAdmin = user => {
-        fetch(`https://express-music-academy-server.vercel.app/users/admin/${user._id}`, {
+        fetch(`https://music-academy-eta.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
@@ -32,12 +32,12 @@ const ManageUsers = () => {
     }
 
     const handleMakeInstructor = user => {
-        fetch(`https://express-music-academy-server.vercel.app/users/instructor/${user._id}`, {
+        fetch(`https://music-academy-eta.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({

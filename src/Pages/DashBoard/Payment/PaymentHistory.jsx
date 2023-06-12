@@ -3,7 +3,6 @@ import useEnrolled from "../../../hooks/useEnrolled";
 const PaymentHistory = () => {
     const [enrolled] = useEnrolled();
     const data = [...enrolled].reverse();
-    console.log(data);
     return (
         <div>
             <div className='text-center pb-10 mt-10'>

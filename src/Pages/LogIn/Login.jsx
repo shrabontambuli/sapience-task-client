@@ -26,9 +26,9 @@ const Login = () => {
         googleSignIn()
         .then(result => {
             const loggedInUser = result.user;
-            console.log(loggedInUser);
+            // console.log(loggedInUser);
             const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-            fetch('https://express-music-academy-server.vercel.app/users', {
+            fetch('https://music-academy-eta.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

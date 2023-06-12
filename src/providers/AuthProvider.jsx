@@ -39,7 +39,7 @@ const AuthProvider = ({children}) => {
             setLoading(false);
 
             if(currentUser){
-                axios.post('https://express-music-academy-server.vercel.app/jwt', {email: currentUser.email})
+                axios.post('https://music-academy-eta.vercel.app/jwt', {email: currentUser.email})
                 .then(data =>{
                     // console.log(data.data.token)
                     localStorage.setItem('access-token', data.data.token)

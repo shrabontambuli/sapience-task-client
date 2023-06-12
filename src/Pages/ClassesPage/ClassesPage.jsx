@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 
 const ClassesPage = () => {
     const classes = useLoaderData();
-    console.log(classes);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -20,7 +19,7 @@ const ClassesPage = () => {
         const { _id, picture, name, price, available_seats } = p;
         if (user && user.email) {
             const selectedClass = { classesId: _id, name, picture, price, available_seats, email: user.email }
-            fetch('https://express-music-academy-server.vercel.app/selected', {
+            fetch('https://music-academy-eta.vercel.app/selected', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

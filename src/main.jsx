@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/classes",
         element: <ClassesPage />,
-        loader: () => fetch('https://express-music-academy-server.vercel.app/classes')
+        loader: () => fetch('https://music-academy-eta.vercel.app/classes')
       },
     ],
   },
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
       {
         path: "payment/:_id",
         element: <Payment/>,
-        loader: ({params}) => fetch(`https://express-music-academy-server.vercel.app/selected/${params._id}`)
+        loader: ({params}) => fetch(`https://music-academy-eta.vercel.app/selected/${params._id}`)
       },
 
       // Admin
@@ -97,12 +97,12 @@ const router = createBrowserRouter([
       {
         path: "manageClasses",
         element: <AdminRoute><ManageClasses/></AdminRoute>,
-        loader: () => fetch('https://express-music-academy-server.vercel.app/classes')
+        loader: () => fetch('https://music-academy-eta.vercel.app/classes')
       },
       {
         path: "feedback/:_id",
         element: <AdminRoute><Feedback/></AdminRoute>,
-        loader: ({params}) => fetch(`https://express-music-academy-server.vercel.app/classes/${params._id}`)
+        loader: ({params}) => fetch(`https://music-academy-eta.vercel.app/classes/${params._id}`)
       },
 
       // Instructor

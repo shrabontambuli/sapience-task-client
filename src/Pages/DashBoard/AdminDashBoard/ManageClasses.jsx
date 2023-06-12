@@ -9,7 +9,7 @@ const ManageClasses = () => {
     const update = { status: 'Approve' }
 
     const handleApprove = (id) => {
-        fetch(`https://express-music-academy-server.vercel.app/classes/${id}`, {
+        fetch(`https://music-academy-eta.vercel.app/classes/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -18,7 +18,7 @@ const ManageClasses = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         position: 'top-center',

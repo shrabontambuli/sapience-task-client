@@ -11,9 +11,9 @@ const AddClass = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         const saveClasses = {available_seats: data.availableSeats,instructor_name: data.instructorName, name: data.name, email: data.email, picture: data.picture, price: data.price, status: data.status }
-        fetch('https://express-music-academy-server.vercel.app/classes', {
+        fetch('https://music-academy-eta.vercel.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
