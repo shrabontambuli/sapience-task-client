@@ -6,7 +6,7 @@ const EnrolledClasses = () => {
     console.log(enrolled);
     return (
         <div className='w-2/3'>
-            <div className='text-center pb-10'>
+            <div className='text-center pb-10 mt-10'>
                 <h1 className='text-3xl font-serif font-bold text-[#1e7522fa]'>My Enrolled Classes</h1>
             </div>
             <div className="overflow-x-auto">

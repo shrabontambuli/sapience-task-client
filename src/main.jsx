@@ -31,6 +31,7 @@ import Payment from './Pages/DashBoard/Payment/Payment.jsx';
 import EnrolledClasses from './Pages/DashBoard/EnrolledClasses.jsx';
 import PaymentHistory from './Pages/DashBoard/Payment/PaymentHistory.jsx';
 import ManageClasses from './Pages/DashBoard/AdminDashBoard/ManageClasses.jsx';
+import Feedback from './Pages/DashBoard/AdminDashBoard/Feedback.jsx';
 
 
 const router = createBrowserRouter([
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/classes",
         element: <ClassesPage />,
-        loader: () => fetch('http://localhost:5000/classes')
+        loader: () => fetch('https://express-music-academy-server.vercel.app/classes')
       },
     ],
   },
@@ -85,7 +86,7 @@ const router = createBrowserRouter([
       {
         path: "payment/:_id",
         element: <Payment/>,
-        loader: ({params}) => fetch(`http://localhost:5000/selected/${params._id}`)
+        loader: ({params}) => fetch(`https://express-music-academy-server.vercel.app/selected/${params._id}`)
       },
 
       // Admin
@@ -95,7 +96,13 @@ const router = createBrowserRouter([
       },
       {
         path: "manageClasses",
-        element: <AdminRoute><ManageClasses/></AdminRoute> 
+        element: <AdminRoute><ManageClasses/></AdminRoute>,
+        loader: () => fetch('https://express-music-academy-server.vercel.app/classes')
+      },
+      {
+        path: "feedback/:_id",
+        element: <AdminRoute><Feedback/></AdminRoute>,
+        loader: ({params}) => fetch(`https://express-music-academy-server.vercel.app/classes/${params._id}`)
       },
 
       // Instructor

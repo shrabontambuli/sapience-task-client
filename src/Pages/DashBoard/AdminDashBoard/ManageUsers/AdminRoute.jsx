@@ -7,7 +7,6 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const [isAdmin, isAdminLoading] = useAdmin();
-    // const [isInstructor, isInstructorLoading] = useInstructor();
     const location = useLocation();
 
     if(loading || isAdminLoading){
@@ -15,6 +14,7 @@ const AdminRoute = ({ children }) => {
     }
 
     if (user || isAdmin) {
+        console.log(user, isAdmin);
         return children;
     }
     return <Navigate to="/" state={{from: location}} replace></Navigate>

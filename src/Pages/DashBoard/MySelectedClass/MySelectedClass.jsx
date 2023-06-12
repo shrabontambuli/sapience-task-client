@@ -17,7 +17,7 @@ const MySelectedClass = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selected/${item._id}`, {
+                fetch(`https://express-music-academy-server.vercel.app/selected/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -36,7 +36,7 @@ const MySelectedClass = () => {
     }
     return (
         <div className='w-2/3'>
-            <div className='text-center pb-10'>
+            <div className='text-center pb-10 mt-10'>
                 <h1 className='text-3xl font-serif font-bold text-[#196e6afa]'>My Selected Classes</h1>
             </div>
             <div className="overflow-x-auto">

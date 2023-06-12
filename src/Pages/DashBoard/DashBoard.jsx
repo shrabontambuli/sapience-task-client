@@ -32,6 +32,7 @@ const DashBoard = () => {
                                 <img src={user?.photoURL} />
                             </div>
                         </div>}
+
                         {
                             isAdmin ?
                                 <>
@@ -53,19 +54,7 @@ const DashBoard = () => {
                                         <li><Link to="paymentHistory">My Payment History</Link></li>
                                     </>
                         }
-                        {/* {
-                            isInstructor ?
-                                <>
-                                    <li><Link to="/"><FaHome /> Instructor Home</Link></li>
-                                    <li><Link to="mySelected">Manage Classes</Link></li>
-                                    <li><Link to="manageUsers">Manage Users</Link></li>
-                                </> :
-                                <>
-                                    <li><Link to="/"><FaHome /> User Home</Link></li>
-                                    <li><Link to="mySelected">My Selected Classes</Link></li>
-                                    <li><Link to="/">My Enrolled Classes</Link></li>
-                                </>
-                        } */}
+                        
 
                     </ul>
 

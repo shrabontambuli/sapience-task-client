@@ -9,7 +9,7 @@ const useSelected = () => {
     const { refetch, data: select = []} = useQuery({
         queryKey: ['classes', user?.email],
         // queryFn: async () =>{
-        //     const res = await fetch(`http://localhost:5000/selected?email=${user?.email}`,{headers:{
+        //     const res = await fetch(`https://express-music-academy-server.vercel.app/selected?email=${user?.email}`,{headers:{
         //         authorization: `bearer ${token}`
         //     }})
         //     return res.json();

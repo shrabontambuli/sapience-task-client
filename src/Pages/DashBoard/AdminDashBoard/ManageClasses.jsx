@@ -1,9 +1,38 @@
-import useSelected from "../../../hooks/useSelected";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 
 const ManageClasses = () => {
-    const [classes] = useSelected();
-    console.log(classes);
+    const classes = useLoaderData();
+
+    const update = { status: 'Approve' }
+
+    const handleApprove = (id) => {
+        fetch(`https://express-music-academy-server.vercel.app/classes/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(update)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Your update has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                }
+            })
+
+    }
+
     return (
         <div className='w-full'>
             <div className='text-center pb-10 mt-7'>
@@ -45,7 +74,7 @@ const ManageClasses = () => {
                                     <h1>{d.name}</h1>
                                 </td>
                                 <td>
-                                    <h1>{d.name}</h1>
+                                    <h1>{d.instructor_name}</h1>
                                 </td>
                                 <td>
                                     <h1>{d.email}</h1>
@@ -60,9 +89,19 @@ const ManageClasses = () => {
                                     <h1>{d.status}</h1>
                                 </td>
                                 <td>
-                                    <button className='btn btn-sm mb-2 bg-[#dfe951]'>Pending</button>
-                                    <button className='btn btn-sm mb-2 bg-[#51e965]'>Approved</button>
-                                    <button className='btn btn-sm bg-[#df2c8e]'>Denied</button>
+                                    <div>
+                                        <div>
+                                            <Link to={`/dashboard/feedback/${d._id}`}>
+                                                <button className='btn btn-sm mb-2 bg-[#dfe951]'>Feedback</button>
+                                            </Link>
+                                        </div>
+                                        <div>{d.status === 'Approve' ? <button className='btn btn-ghost btn-sm mb-2'>Disable</button> :
+                                            <button onClick={() => handleApprove(d._id)} className='btn btn-sm mb-2 bg-[#51e965]'>Approved</button>}
+                                        </div>
+                                        <div>
+                                            <button className='btn btn-sm bg-[#df2c8e]'>Denied</button>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>)
                         }

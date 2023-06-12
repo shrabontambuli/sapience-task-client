@@ -2,10 +2,11 @@ import useEnrolled from "../../../hooks/useEnrolled";
 
 const PaymentHistory = () => {
     const [enrolled] = useEnrolled();
-    console.log(enrolled);
+    const data = [...enrolled].reverse();
+    console.log(data);
     return (
         <div>
-            <div className='text-center pb-10'>
+            <div className='text-center pb-10 mt-10'>
                 <h1 className='text-3xl font-serif font-bold text-[#1e7275fa]'>My Payment History</h1>
             </div>
             <div className="overflow-x-auto">
@@ -25,7 +26,7 @@ const PaymentHistory = () => {
                     </thead>
                     <tbody>
                         {
-                            enrolled.map((d, index) => <tr key={d._id}>
+                           data.map((d, index) => <tr key={d._id}>
                                 <th>
                                     {index + 1}
                                 </th>

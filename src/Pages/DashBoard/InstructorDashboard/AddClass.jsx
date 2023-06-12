@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Form } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 
 
@@ -11,6 +12,27 @@ const AddClass = () => {
 
     const onSubmit = data => {
         console.log(data);
+        const saveClasses = {available_seats: data.availableSeats,instructor_name: data.instructorName, name: data.name, email: data.email, picture: data.picture, price: data.price, status: data.status }
+        fetch('https://express-music-academy-server.vercel.app/classes', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveClasses)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    reset();
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'New Class added and pending for admin approval ',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     return (
