@@ -48,7 +48,7 @@ const ClassesPage = () => {
             <div className="container mx-auto">
                 <h1 className="text-center text-3xl font-serif font-semibold">Our All Class</h1>
                 
-                <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-y-5">
+                <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-y-5 justify-items-center">
                     {
                         remaining.map(p => <div key={p._id} className="card w-80 bg-base-100 shadow-xl image-full">
                             <figure><img src={p.picture} alt="Shoes" /></figure>
