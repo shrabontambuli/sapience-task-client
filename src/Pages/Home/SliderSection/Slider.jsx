@@ -9,7 +9,7 @@ const Slider = () => {
             <div className="carousel w-full">
                 <div id="item1" className="carousel-item w-full relative">
                     <img src={Slider1} className="w-full h-[550px]" />
-                    <div className="absolute top-56 text-white left-[400px] text-center bg-opacity-20 bg-black p-5">
+                    <div className="absolute top-56 text-white lg:left-[38%] text-center bg-opacity-20 bg-black p-5">
                         <h1 className="text-5xl font-sans font-semibold">Music is Your Wold</h1>
                         <p className="text-3xl font-sans font-semibold mt-3">Do not miss a chance</p>
                         <button className="btn btn-warning font-sans font-semibold mt-5">START LEARNING</button>
@@ -17,7 +17,7 @@ const Slider = () => {
                 </div>
                 <div id="item2" className="carousel-item w-full relative">
                     <img src={Slider2} className="w-full h-[550px]" />
-                    <div className="absolute top-56 text-white left-[400px] text-center bg-opacity-20 bg-black p-5">
+                    <div className="absolute top-56 text-white lg:left-[38%] text-center bg-opacity-20 bg-black p-5">
                         <h1 className="text-5xl font-sans font-semibold">Start With A Note</h1>
                         <p className="text-3xl font-sans font-semibold mt-3">Awaken Possibility</p>
                         <button className="btn btn-warning font-sans font-semibold mt-5">START LEARNING</button>
@@ -25,7 +25,7 @@ const Slider = () => {
                 </div>
                 <div id="item3" className="carousel-item w-full relative">
                     <img src={Slider3} className="w-full h-[550px]" />
-                    <div className="absolute top-56 text-white left-[400px] text-center bg-opacity-20 bg-black p-5">
+                    <div className="absolute top-56 text-white lg:left-[38%] text-center bg-opacity-20 bg-black p-5">
                         <h1 className="text-5xl font-sans font-semibold">Music is Your Wold</h1>
                         <p className="text-3xl font-sans font-semibold mt-3">Do not miss a chance</p>
                         <button className="btn btn-warning font-sans font-semibold mt-5">START LEARNING</button>
@@ -33,7 +33,7 @@ const Slider = () => {
                 </div>
                 <div id="item4" className="carousel-item w-full relative">
                     <img src={Slider4} className="w-full h-[550px]" />
-                    <div className="absolute top-56 text-white left-[400px] text-center bg-opacity-20 bg-black p-5">
+                    <div className="absolute top-56 text-white lg:left-[38%] text-center bg-opacity-20 bg-black p-5">
                         <h1 className="text-5xl font-sans font-semibold">Music For Everyone</h1>
                         <p className="text-3xl font-sans font-semibold mt-3">Awaken Possibility</p>
                         <button className="btn btn-warning font-sans font-semibold mt-5">START LEARNING</button>

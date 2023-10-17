@@ -31,7 +31,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar fixed z-50 bg-opacity-10 max-w-screen-xl bg-white font-semibold text-black px-10 top-0">
+            <div className="navbar fixed z-50 bg-opacity-10 max-w-screen-4xl bg-white font-semibold text-black pe-3 lg:px-10 top-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,9 +41,9 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <div className="flex">
-                        <img src={Logo} alt="" />
-                        <p className="ms-2 text-xl text-center font-serif font-semibold">Express Music <br /> Academy</p>
+                    <div className="flex items-center">
+                        <img className="lg:w-24" src={Logo} alt="" />
+                        <p className="ms-2 lg:text-xl text-center font-serif font-semibold">Express Music <br /> Academy</p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
