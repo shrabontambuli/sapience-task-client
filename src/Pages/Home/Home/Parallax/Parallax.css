@@ -1,0 +1,6 @@
+.bgImg{
+    background-image: url('https://landing.shopilaunch.com/keymicro/assets/images/banner-footer.jpg');
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+}

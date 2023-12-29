@@ -77,7 +77,7 @@ const SignUp = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Register Now!</h1>
-                        <img className="h-96 w-full rounded-3xl mt-3" src="/image/register.webp" alt="" />
+                        <img className="h-full w-full rounded-3xl mt-10" src="https://i.pinimg.com/originals/68/36/db/6836dbe3b0f86daa293c22758497c18f.gif" alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <Form onSubmit={handleSubmit(onSubmit)} className="card-body">

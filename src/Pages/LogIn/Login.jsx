@@ -43,12 +43,12 @@ const Login = () => {
     }
 
 return (
-    <div className="mt-10">
+    <div>
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <img className="h-96 w-full rounded-3xl mt-3" src="/image/login.jpg" alt="" />
+                    <h1 className="text-5xl font-bold pb-5">Login now!</h1>
+                    <img className="h-full w-full rounded-3xl" src="https://cdn.dribbble.com/users/1172503/screenshots/4505740/login-form.gif" alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <Form onSubmit={handleSubmit(onSubmit)} className="card-body">

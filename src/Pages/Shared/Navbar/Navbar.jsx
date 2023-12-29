@@ -1,11 +1,26 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../../public/image/pngwing.com (1).png"
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
+
     const { user, logOut } = useContext(AuthContext);
+    const [theme, setTheme] = useState(false);
+
+    const handleMood = () => {
+        setTheme(!theme)
+    }
+    useEffect(() => {
+        if (theme == true) {
+            document.body.classList.add("dark");
+        }
+        else {
+            document.body.classList.remove("dark");
+        }
+    })
+
     const handleLogOut = () => {
         logOut()
             .then()
@@ -20,7 +35,7 @@ const Navbar = () => {
             {user &&
                 <li><Link to="/dashboard">Dashboard</Link></li>
             }
-            
+
             {
                 user ? <Link to='/'><li><button onClick={handleLogOut}>LogOut</button></li></Link> :
                     <li><Link to="/login">Login</Link></li>
@@ -42,7 +57,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                        <img className="lg:w-24" src={Logo} alt="" />
+                        <img className="lg:w-12" src={Logo} alt="" />
                         <p className="ms-2 lg:text-xl text-center font-serif font-semibold">Express Music <br /> Academy</p>
                     </div>
                 </div>
@@ -53,7 +68,15 @@ const Navbar = () => {
                 </div>
                 {user &&
                     <div className="navbar-end">
-                        <img title={user?.displayName} className="w-16 h-16 rounded-full" src={user?.photoURL} alt="" />
+
+
+                        <button onClick={handleMood}>
+                            <label className="label justify-end cursor-pointer px-10">
+                                {theme ? "Light" : "Dark"}<input type="checkbox" className="toggle toggle-warning ms-2" checked />
+                            </label>
+                        </button>
+
+                        <img title={user?.displayName} className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
                     </div>}
             </div>
         </>
