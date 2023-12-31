@@ -10,8 +10,9 @@ const Classes = () => {
             .then(res => res.json())
             .then(data => setData(data.slice(0,6)))
     }, [])
+    // bg-[rgba(208,214,214,0.8)]
     return (
-        <div className="bg-[rgba(208,214,214,0.8)] pt-8 pb-24">
+        <div className="pt-8 pb-24">
             <div className="mt-8 container mx-auto">
                 <div>
                     <h1 className="text-3xl font-serif font-semibold text-center">Our Popular Musical Instruments <br /> Class</h1>
