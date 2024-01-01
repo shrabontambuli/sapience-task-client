@@ -4,6 +4,7 @@ import Instructors from "../Instructors/Instructors";
 import NewSection from "../NewSection/NewSection";
 import Slider from "../SliderSection/Slider";
 import BestClass from "./BestClass/BestClass";
+import ClientSay from "./ClientSay/ClientSay";
 import './Home.css';
 import Parallax from "./Parallax/Parallax";
 
@@ -47,6 +48,10 @@ const Home = () => {
             <div>
                 <BestClass />
             </div>
+            <div>
+                <ClientSay />
+            </div>
+
             <div>
                 <NewSection />
             </div>

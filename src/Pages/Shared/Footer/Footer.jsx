@@ -3,7 +3,7 @@
 
 const Footer = () => {
     return (
-        <div className="bg-[#a7a4a4] text-black py-20">
+        <div className="bg-[#a0a09f] text-black py-20">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 text-center font-serif items-center">
                 <div className="inline-flex justify-center items-center">
                     <img className="w-16" src="/image/pngwing.com (1).png" alt="" />

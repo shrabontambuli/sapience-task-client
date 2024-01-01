@@ -1,3 +1,4 @@
+// import Flicking from "@egjs/react-flicking";
 import Slider1 from "../../../../public/image/slider-1.jpg"
 import Slider2 from "../../../../public/image/slider-2.png"
 import Slider3 from "../../../../public/image/slider-3.jpg"
@@ -47,6 +48,23 @@ const Slider = () => {
                 <a href="#item4" className="btn btn-xs">4</a>
             </div>
         </div>
+
+        // <Flicking
+        //     align="prev"
+        //     circular={true}
+        //     onMoveEnd={e => {
+        //         console.log(e);
+        //     }}>
+        //     <div className="panel">
+        //         <img src={Slider1} alt="" />
+        //     </div>
+        //     <div className="panel">
+        //         <img src={Slider2} alt="" />
+        //     </div>
+        //     <div className="panel">
+        //         <img src={Slider3} alt="" />
+        //     </div>
+        // </Flicking>
     );
 };
 
