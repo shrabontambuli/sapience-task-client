@@ -9,6 +9,7 @@ import ClientSay from "./ClientSay/ClientSay";
 import './Home.css';
 import Parallax from "./Parallax/Parallax";
 import SideBanner from "./SideBanner/SideBanner";
+import SideSection from "./SideSection/SideSection";
 
 
 const Home = () => {
@@ -29,6 +30,9 @@ const Home = () => {
             </div>
             <div>
                 <Instructors />
+            </div>
+            <div>
+                <SideSection />
             </div>
             <div>
                 <BestClass />
