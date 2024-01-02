@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 const NewSection = () => {
     return (
         <div>
-            <div className="hero min-h-screen" style={{
+            <div className="hero" style={{
                 backgroundImage: `url("https://melody.ancorathemes.com/wp-content/uploads/2016/05/bg2-Parallax.jpg")`
             }}>
                 <div className="hero-overlay bg-white bg-opacity-10"></div>
-                <div className="hero-content text-center text-neutral-content">
+                <div className="hero-content text-center text-neutral-content py-40">
                     <div className="max-w-4xl">
                         <h1 className="mb-5 text-5xl font-bold">Express Music Academy</h1>
                         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mt-20">

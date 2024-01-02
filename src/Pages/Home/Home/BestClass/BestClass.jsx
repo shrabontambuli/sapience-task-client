@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const BestClass = () => {
     return (
         <div className="bg-[#ebe9eb]">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center items-center px-6 py-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center items-center px-6 py-28">
                 <div className="grid grid-cols-1 gap-8">
                     <div>
                         <div className="bgImg2 bg-fixed text-white">

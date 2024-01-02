@@ -4,7 +4,7 @@ const ClientSay = () => {
     return (
         <div className="bg-[#f7f7f7] py-20">
             <div className="container mx-auto">
-                <h1 className="text-center text-4xl font-semibold mt-8">What Our Clients Say</h1>
+                <h1 className="text-center text-4xl font-semibold">What Our Clients Say</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
                     <div className="h-72 md:h-80 px-6 border border-warning rounded-xl p-8">
                         <p className="text-justify">“Although we were 1400 miles away we always felt that we were well informed on the progress of construction. The end product is a home we love and are proud of. Thank you for making that a reality! This was a great experience for us.”</p>
