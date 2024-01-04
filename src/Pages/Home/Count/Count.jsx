@@ -47,7 +47,7 @@ const Count = () => {
                                         {({ countUpRef, start }) => (
                                             <div>
                                                 <span ref={countUpRef} />
-                                                <h1 className="inline-flex" onClick={start}>+</h1>
+                                                <h1 className="inline-flex">{start}+</h1>
                                             </div>
                                         )}
                                     </CountUp>
@@ -82,7 +82,7 @@ const Count = () => {
                                         {({ countUpRef, start }) => (
                                             <div>
                                                 <span ref={countUpRef} />
-                                                <h1 className="inline-flex" onClick={start}>+</h1>
+                                                <h1 className="inline-flex">{start}+</h1>
                                             </div>
                                         )}
                                     </CountUp>
@@ -117,7 +117,7 @@ const Count = () => {
                                         {({ countUpRef, start }) => (
                                             <div>
                                                 <span ref={countUpRef} />
-                                                <h1 className="inline-flex" onClick={start}>+</h1>
+                                                <h1 className="inline-flex">{start}+</h1>
                                             </div>
                                         )}
                                     </CountUp>
