@@ -1,5 +1,5 @@
-// import { useEffect, useState } from "react";
 import Classes from "../Classes/Classes";
+import Count from "../Count/Count";
 import Instructors from "../Instructors/Instructors";
 import NewSection from "../NewSection/NewSection";
 import Slider from "../SliderSection/Slider";
@@ -40,9 +40,10 @@ const Home = () => {
             <div>
                 <ClientSay />
             </div>
-            {/* <div>
-                <CountDown />
-            </div> */}
+            <div>
+                {/* <CountDown /> */}
+                <Count />
+            </div>
             <div>
                 <NewSection />
             </div>
