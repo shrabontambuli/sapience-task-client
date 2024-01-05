@@ -40,9 +40,6 @@ const Count = () => {
                                         start={0}
                                         end={data.length}
                                         duration={3.75}
-
-                                        onEnd={() => console.log('Ended! 👏')}
-                                        onStart={() => console.log('Started! 💨')}
                                     >
                                         {({ countUpRef, start }) => (
                                             <div>
@@ -75,9 +72,6 @@ const Count = () => {
                                         start={0}
                                         end={payment.length}
                                         duration={3.75}
-
-                                        onEnd={() => console.log('Ended! 👏')}
-                                        onStart={() => console.log('Started! 💨')}
                                     >
                                         {({ countUpRef, start }) => (
                                             <div>
@@ -110,9 +104,6 @@ const Count = () => {
                                         start={0}
                                         end={payment.length}
                                         duration={3.75}
-
-                                        onEnd={() => console.log('Ended! 👏')}
-                                        onStart={() => console.log('Started! 💨')}
                                     >
                                         {({ countUpRef, start }) => (
                                             <div>
