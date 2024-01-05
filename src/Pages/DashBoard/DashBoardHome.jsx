@@ -96,7 +96,7 @@ const DashBoardHome = () => {
 
             <div className="bg-white py-10 rounded-2xl mt-16 mb-10 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2  justify-items-center items-center gap-y-14">
-                    <div className="text-center w-11/12 md:w-10/12 mx-auto">
+                    <div className="text-center w-11/12 md:w-full mx-auto">
                         <div className="rounded-xl shadow-2xl border-2 border-warning">
                             <div className='w-11/12 mx-auto bg-white my-8 rounded-2xl'>
                                 <div className='text-center'>

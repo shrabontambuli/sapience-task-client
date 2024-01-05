@@ -38,7 +38,7 @@ const ManageClasses = () => {
             <div className='text-center pb-10 mt-10'>
                 <h1 className='text-3xl font-serif font-bold text-warning'>Manage All Class</h1>
             </div>
-            <div className="overflow-x-auto mt-5 px-10 pb-6">
+            <div className="overflow-x-auto mt-5 pb-6 px-4">
                 <table className="table text-center">
                     {/* head */}
                     <thead>
@@ -49,10 +49,11 @@ const ManageClasses = () => {
                             <th> Class Image</th>
                             <th> Class Name</th>
                             <th>Instructor Name</th>
-                            <th>Email</th>
+                            {/* <th>Email</th> */}
                             <th>Available Seats</th>
                             <th>Price</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,9 +77,9 @@ const ManageClasses = () => {
                                 <td>
                                     <h1 className="text-base font-medium">{d.instructor_name}</h1>
                                 </td>
-                                <td>
+                                {/* <td>
                                     <h1 className="text-base font-medium">{d.email}</h1>
-                                </td>
+                                </td> */}
                                 <td>
                                     <h1 className="text-base font-medium">{d.available_seats}</h1>
                                 </td>
