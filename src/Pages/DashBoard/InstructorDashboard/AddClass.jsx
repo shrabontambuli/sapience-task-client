@@ -38,12 +38,10 @@ const AddClass = () => {
     return (
         <div className="w-full">
 
-            <div className="hero min-h-screen bg-base-200 py-5">
-
-
-                <div className="card flex-shrink-0 w-full max-w-3xl shadow-2xl bg-base-100">
-                    <div className="text-center font-serif font-semibold text-2xl mt-5">
-                        <h1> Add A Class</h1>
+            <div className="hero min-h-screen bg-base-200 py-10">
+                <div className="card flex-shrink-0 w-full max-w-4xl shadow-2xl bg-base-100 md:px-4">
+                    <div className="font-serif font-semibold text-2xl mt-8">
+                        <h1 className="text-3xl text-center font-serif font-bold text-warning"> Add A Class</h1>
                     </div>
                     <Form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
@@ -99,7 +97,7 @@ const AddClass = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-warning w-full">Add A Class</button>
+                            <button className="btn btn-outline btn-warning w-full">Add A Class</button>
                         </div>
                     </Form>
                 </div>

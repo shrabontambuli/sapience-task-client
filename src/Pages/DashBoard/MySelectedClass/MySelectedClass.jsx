@@ -35,12 +35,12 @@ const MySelectedClass = () => {
         })
     }
     return (
-        <div className='w-2/3'>
+        <div className='w-11/12 mx-auto bg-white my-14 rounded-2xl'>
             <div className='text-center pb-10 mt-10'>
-                <h1 className='text-3xl font-serif font-bold text-[#196e6afa]'>My Selected Classes</h1>
+                <h3 className="text-3xl text-center font-serif font-bold text-warning">Selected Classes</h3>
             </div>
-            <div className="overflow-x-auto">
-                <table className="table">
+            <div className="overflow-x-auto w-11/12 mx-auto pb-6">
+                <table className="table table-zebra w-full text-center">
                     {/* head */}
                     <thead className='text-lg'>
                         <tr>
@@ -61,7 +61,7 @@ const MySelectedClass = () => {
                                 </th>
                                 <td>
                                     <div className="flex items-center space-x-3">
-                                        <div className="avatar">
+                                        <div className="avatar mx-auto">
                                             <div className="mask mask-squircle w-12 h-12">
                                                 <img src={d.picture} alt="Avatar Tailwind CSS Component" />
                                             </div>
@@ -73,11 +73,11 @@ const MySelectedClass = () => {
                                 </td>
                                 <td>
                                     <Link to = {`/dashboard/payment/${d._id}`}>
-                                        <button className='btn btn-outline rounded-full'><FaWallet /></button>
+                                        <button className='btn btn-warning rounded-full'><FaWallet /></button>
                                     </Link>
                                 </td>
                                 <th>
-                                    <button onClick={() => handleDelete(d)} className="btn btn-circle btn-outline">
+                                    <button onClick={() => handleDelete(d)} className="btn btn-circle btn-error btn-outline">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                     </button>
                                 </th>

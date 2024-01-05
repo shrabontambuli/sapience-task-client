@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router";
 import useAdmin from "../../../../hooks/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import { Hourglass } from "react-loader-spinner";
 
 
 const AdminRoute = ({ children }) => {
@@ -10,7 +11,16 @@ const AdminRoute = ({ children }) => {
     const location = useLocation();
 
     if(loading || isAdminLoading){
-        return <progress className="progress w-full"></progress>
+        // return <progress className="progress w-full"></progress>
+        return (<Hourglass
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="hourglass-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            colors={['#306cce', '#72a1ed']}
+            />)
     }
 
     if (user || isAdmin) {

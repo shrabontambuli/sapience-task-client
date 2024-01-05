@@ -27,7 +27,7 @@ const DashBoardHome = () => {
     return (
         <div className="md:px-14 w-11/12 mx-auto mt-14 rounded-2xl">
             <div className="flex justify-between items-center">
-                <h1 className="text-3xl font-semibold font-serif">Hello! {user?.displayName} 👋🏼</h1>
+                <h1 className="text-3xl font-semibold font-serif">Hello ! {user?.displayName} 👋🏼</h1>
                 {user && <div className="avatar">
                     <div className="w-14 rounded-full ring ring-warning ring-offset-base-100 ring-offset-4 mb-4">
                         <img src={user?.photoURL} />

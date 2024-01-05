@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useInstructor from "../../../hooks/useInstructor";
 import { Navigate, useLocation } from "react-router-dom";
+import { Hourglass } from "react-loader-spinner";
 
 
 const InstructorRoute = ({ children }) => {
@@ -10,7 +11,18 @@ const InstructorRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading || isInstructorLoading) {
-        return <progress className="progress w-full"></progress>
+        // return <progress className="progress w-full"></progress>
+        return <div className="mt-36">
+            (<Hourglass
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="hourglass-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                colors={['#306cce', '#72a1ed']}
+            />)
+        </div>
     }
 
     if (user && isInstructor) {

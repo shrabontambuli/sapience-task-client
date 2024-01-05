@@ -4,12 +4,12 @@ import useEnrolled from "../../hooks/useEnrolled";
 const EnrolledClasses = () => {
     const [enrolled] = useEnrolled();
     return (
-        <div className='w-2/3'>
+        <div className='w-11/12 mx-auto bg-white my-14 rounded-2xl'>
             <div className='text-center pb-10 mt-10'>
-                <h1 className='text-3xl font-serif font-bold text-[#1e7522fa]'>My Enrolled Classes</h1>
+                <h3 className="text-3xl text-center font-serif font-bold text-warning">Enrolled Classes</h3>
             </div>
-            <div className="overflow-x-auto">
-                <table className="table">
+            <div className="overflow-x-auto w-11/12 mx-auto pb-6">
+                <table className="table table-zebra w-full">
                     {/* head */}
                     <thead className='text-lg'>
                         <tr>

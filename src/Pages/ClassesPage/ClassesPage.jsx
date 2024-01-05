@@ -44,7 +44,7 @@ const ClassesPage = () => {
         }
     }
     return (
-        <div className="mt-24 bg-[#7f8a8ffa] py-14">
+        <div className="mt-24 bg[#eff0f5] py-14">
             <div className="container mx-auto">
                 <h1 className="text-center text-3xl font-serif font-semibold">Our All Class</h1>
                 

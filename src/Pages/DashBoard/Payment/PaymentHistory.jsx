@@ -4,12 +4,12 @@ const PaymentHistory = () => {
     const [enrolled] = useEnrolled();
     const data = [...enrolled].reverse();
     return (
-        <div>
+        <div className='w-11/12 mx-auto bg-white my-14 rounded-2xl'>
             <div className='text-center pb-10 mt-10'>
-                <h1 className='text-3xl font-serif font-bold text-[#1e7275fa]'>My Payment History</h1>
+                <h3 className="text-3xl text-center font-serif font-bold text-warning">Payment History</h3>
             </div>
-            <div className="overflow-x-auto">
-                <table className="table">
+            <div className="overflow-x-auto w-11/12 mx-auto pb-6">
+                <table className="table table-zebra w-full">
                     {/* head */}
                     <thead className='text-lg'>
                         <tr>
