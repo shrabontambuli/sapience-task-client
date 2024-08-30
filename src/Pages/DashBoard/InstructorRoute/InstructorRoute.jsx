@@ -12,7 +12,7 @@ const InstructorRoute = ({ children }) => {
 
     if (loading || isInstructorLoading) {
         // return <progress className="progress w-full"></progress>
-        return <div className="mt-36">
+        return <div className="flex justify-center items-center h-screen">
             (<Hourglass
                 visible={true}
                 height="80"
