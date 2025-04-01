@@ -24,7 +24,7 @@ const SignUp = () => {
                     displayName: data.name, photoURL: data.photo
                 })
                 const saveUser = { name: data.name, email: data.email }
-                fetch('https://music-academy-eta.vercel.app/users', {
+                fetch('https://sapience-task-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +77,7 @@ const SignUp = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Register Now!</h1>
-                        <img className="h-full w-full rounded-3xl mt-10" src="https://i.pinimg.com/originals/68/36/db/6836dbe3b0f86daa293c22758497c18f.gif" alt="" />
+                        <img className="h-full w-full rounded-3xl mt-10" src="https://semidesign.in/wp-content/uploads/2021/12/71548-tutionseeker.gif" alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <Form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -132,10 +132,10 @@ const SignUp = () => {
                                     name="photo" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-warning">Register</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                             <p className="mt-4">Already have an account! <Link className="underline" to='/login'>Please Login</Link></p>
-                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
+                            <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-primary mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
                         </Form>
                     </div>
                 </div>

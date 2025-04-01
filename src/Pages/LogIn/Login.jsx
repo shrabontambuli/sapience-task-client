@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Form, Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
-
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signIn, googleSignIn } = useContext(AuthContext);
@@ -28,7 +27,7 @@ const Login = () => {
             const loggedInUser = result.user;
             // console.log(loggedInUser);
             const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-            fetch('https://music-academy-eta.vercel.app/users', {
+            fetch('https://sapience-task-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -48,7 +47,7 @@ return (
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold pb-5">Login now!</h1>
-                    <img className="h-full w-full rounded-3xl" src="https://cdn.dribbble.com/users/1172503/screenshots/4505740/login-form.gif" alt="" />
+                    <img className="h-full w-full rounded-3xl" src="https://ws.alagappauniversity.ac.in/Purchase/Assets/img/Login.gif" alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <Form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -83,11 +82,11 @@ return (
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-warning">Login</button>
+                            <button className="btn btn-primary">Login</button>
                         </div>
                         <p className="mt-4"><Link className="underline" to='/signUp'>SignUp</Link> ! for new account</p>
                         <hr />
-                        <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-warning mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
+                        <button onClick={handleGoogle} className=" mt-2 btn btn-outline btn-primary mx-auto"><p className="text-3xl">G</p> Continue with Google</button>
                     </Form>
                 </div>
             </div>
